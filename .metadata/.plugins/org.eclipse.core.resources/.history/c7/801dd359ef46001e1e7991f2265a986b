@@ -1,0 +1,33 @@
+package adsd;
+
+import java.util.Scanner;
+
+public class Out {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		EzenComputer ezen = new EzenComputer("홍길동", "010-2222-3333");
+		ezen.infoAll();
+		System.out.println("이름,생년월일,나이,전화번호를 입력해주십시오.");
+		ezen.setStuinfo(scan.next(), scan.nextInt(), scan.nextInt(),scan.next());
+		System.out.println("학원의 지역을 입력해주십시오.");
+		ezen.setArea(scan.next());
+		System.out.println("수강하고 있는 과목의 수를 입력해주십시오.");
+		ezen.setCnt(scan.nextInt());
+		ezen.Sub(scan, ezen.getCnt());
+		ezen.infoAll();
+		for (;;) {
+			//현재 들어있는 배열이 배열 최대갯수랑 같다면 종료.
+			if (ezen.getCnt() == ezen.getMaxCnt()-1) break;
+			System.out.println("과목을 추가하려면 추가할 과목의 갯수를,프로그램을 종료하려면 0을 입력하세요.");
+			int temp = scan.nextInt();
+			if (temp == 0)
+				break;
+			ezen.setCnt(ezen.getCnt() + temp);
+			ezen.Sub(scan, temp);
+			ezen.suinfo();
+		}
+		scan.close();
+	}
+}

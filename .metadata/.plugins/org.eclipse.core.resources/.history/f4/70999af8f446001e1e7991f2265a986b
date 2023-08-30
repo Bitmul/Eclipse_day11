@@ -1,0 +1,51 @@
+package adsd;
+
+import java.util.Scanner;
+
+public class Out {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+//		EzenComputer ezen = new EzenComputer("홍길동", "010-2222-3333");
+//		System.out.println("이름,생년월일,나이,전화번호를 입력해주십시오.");
+//		ezen.setStuinfo(scan.next(),scan.nextInt(), scan.nextInt(),scan.next());
+//		System.out.println("학원의 지역을 입력해주십시오.");
+//		ezen.setArea(scan.next());
+//		System.out.println("수강하고 있는 과목의 수를 입력해주십시오.");
+//		ezen.setCnt(scan.nextInt());
+//		ezen.Sub(scan, ezen.getCnt());
+//		ezen.infoAll();
+//		ezen.prntsub(scan);
+//		
+//		EzenComputer ezen2 = new EzenComputer("홍길순","010-3564-5789","인천",2000,23);
+//		ezen2.infoAll();
+		
+		EzenComputer ezen[]= new EzenComputer[5];
+		for (int i =0;i<5;i++)
+		{
+			ezen[i] = new EzenComputer();
+			System.out.println("학생의 신상정보를 입력해주십시오.");
+			ezen[i].setStuinfo(scan.next(),scan.nextInt(), scan.nextInt(),scan.next());
+			
+		}
+		for(int i =0;i<5;i++)
+		{
+			System.out.println(ezen[i].getName() + " 학생의 학원 위치를 입력해주세요.");
+			ezen[i].setArea(scan.next());
+		}
+		for(int i =0;i<5;i++)
+		{
+			System.out.println(ezen[i].getName() + " 학생의이 수강하고 있는 과목의 수를 입력해주세요.");
+			ezen[i].setCnt(scan.nextInt());
+			ezen[i].Sub(scan, ezen[i].getCnt());
+		}
+		
+		for (int i =0;i<5;i++)
+		{
+			ezen[i].infoAll();
+		}
+		
+		scan.close();
+	}
+}

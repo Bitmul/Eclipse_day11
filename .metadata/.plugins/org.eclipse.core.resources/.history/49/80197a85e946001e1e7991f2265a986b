@@ -1,0 +1,151 @@
+package adsd;
+
+import java.util.Scanner;
+
+public class Abcd {
+	public static void main(String[] args) {
+		 
+		 //EazenComputer 클래스 생성
+		 //기본정보 : 이름, 생년월일 ,나이, 전화번호
+		 //학원정보 : 학원이름 = "EZEN" , 지점.
+		 //수강정보 : 과목, 기간(ex : 2023.08.16 ~2024.03.14).
+		 
+		 
+		 // 기능 학생정보출력 학원정보출력 수강정보출력 학생 수강정보 추가기능.
+		 
+	 }
+}
+
+class EzenComputer
+{
+	private String area;
+	private final static String hak = "EZEN";
+	private String subname[] = new String[5];
+	private String time[] = new String[5];
+	private String name;
+	private String phone;
+	private int birth;
+	private int old;
+	private int cnt = 0;
+	
+	public EzenComputer(){}
+	
+	//기본인적사항만 포함
+	public EzenComputer(String name,String phone)
+	{
+		this.name = name;
+		this.phone = phone;
+	}
+	
+	//수강정보 미포함
+	public EzenComputer(String name,String phone,String area,int birth, int old)
+	{
+		this.name = name;
+		this.phone = phone;
+		this.area = area;
+		this.birth = birth;
+		this.old = old;
+	}
+	
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	//수강정보 포함한 입력
+	public EzenComputer(String name,String phone,String area,String sub,String time,int birth, int old)
+	{
+		this.name = name;
+		this.phone = phone;
+		this.area = area;
+		this.birth = birth;
+		this.old = old;
+		this.subname[0] = sub;
+		this.time[0] = time;
+	}
+	
+	
+	//수강정보 추가
+	public void Sub(Scanner tscan)
+	{
+		for (int i =0;i<cnt;i++)
+		{
+			this.subname[i] = tscan.next();
+			this.time[i] = tscan.next();
+		}
+	}
+	
+	public void suinfo()
+	{
+		System.out.println("\n-----수강 목록-----\n");
+		for (int i =0;i<this.cnt;i++)
+		{
+			System.out.println(this.subname[i] + "(" + this.time[i] + ")");
+		}
+	}
+	
+	public void Hakinfo()
+	{
+		System.out.println("\n-----학원 정보-----\n");
+		System.out.println("학원 이름 : " + this.hak);
+		System.out.println("학원 지역 : " + this.area);
+	}
+	
+	public void Stuinfo()
+	{
+		System.out.println("\n-----학생 정보-----\n");
+		System.out.println("학생 이름 : " + this.name);
+		System.out.println("생년월일 : " + this.birth);
+		System.out.println("나이 : " + this.old);
+		System.out.println("전화번호 : " + this.phone);
+	}
+	
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String[] getSubname() {
+		return subname;
+	}
+	public void setSubname(String[] subname) {
+		this.subname = subname;
+	}
+	public String[] getTime() {
+		return time;
+	}
+	public void setTime(String[] time) {
+		this.time = time;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getBirth() {
+		return birth;
+	}
+	public void setBirth(int birth) {
+		this.birth = birth;
+	}
+	public int getOld() {
+		return old;
+	}
+	public void setOld(int old) {
+		this.old = old;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public static String getHak() {
+		return hak;
+	}
+}
